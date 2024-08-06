@@ -10,9 +10,9 @@ jobs:
       run: pipx install poetry
     - name: Check Poetry Python version
       run: poetry env info
-    - uses: setup-python@v5
+    - uses: actions/setup-python@v5
       with:
-        python-version: '3.7'
+        python-version: '3.9'
         cache: 'poetry'
     - run: poetry install
     - name: Check Poetry Python version
