@@ -1,0 +1,24 @@
+name: run tests#1187
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-11-arm
+   
+
+    steps:
+      - uses: actions/checkout@v4
+        
+
+      # - name: Set up Python 
+      #   uses: actions/setup-python@v5
+      #   with:
+      #     python-version: "3.12"
+          
+      - name: Show Python .exe files in hosted tool cache
+        run: |
+          echo "=== Toolcache Python .exe files ==="
+          Get-ChildItem -Path "C:\hostedtoolcache\windows\Python" -Recurse -Filter *.exe | ForEach-Object { $_.FullName }
+          
