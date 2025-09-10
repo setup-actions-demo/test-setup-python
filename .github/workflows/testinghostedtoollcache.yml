@@ -1,4 +1,4 @@
-name: run tests#1187
+name: run tests #1187
 
 on: 
   workflow_dispatch:
@@ -6,16 +6,22 @@ on:
 jobs:
   build:
     runs-on: windows-11-arm
-   
 
     steps:
       - uses: actions/checkout@v4
-        
 
       - name: Set up Python 
         uses: actions/setup-python@v5
         with:
           python-version: "3.13"
           architecture: 'arm64'
-          
-     
+
+      - name: Show Python installations (debug)
+        run: py --list-paths
+
+      - name: Confirm Python version and architecture
+        run: |
+          python --version
+          python -c "import platform; print(platform.architecture())"
+
+      
