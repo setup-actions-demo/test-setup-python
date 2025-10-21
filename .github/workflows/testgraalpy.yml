@@ -1,0 +1,22 @@
+name: Test graalpy versions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ macos-latest, windows-latest, ubuntu-22.04, macos-13, ubuntu-22.04-arm]
+        python-version:
+        - 'graalpy-24.1.0'
+        - 'graalpy24.1'
+        - 'graalpy-26.0.0-ea.13'
+    steps:
+    - uses: actions/checkout@v5
+    - uses: timfel/setup-python@tim/graalpy-windows-ea
+      with:
+        python-version: ${{ matrix.python-version }}
+        allow-prereleases: true
