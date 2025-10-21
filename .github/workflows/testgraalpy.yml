@@ -13,7 +13,7 @@ jobs:
         python-version:
         - 'graalpy-24.1.0'
         - 'graalpy24.1'
-        - 'graalpy-26.0.0-ea.13'
+        - 'graalpy-26.x'
     steps:
     - uses: actions/checkout@v5
     - uses: timfel/setup-python@tim/graalpy-windows-ea
